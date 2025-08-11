@@ -27,7 +27,7 @@ router.post("/sentiment", async (req, res) => {
         res.json({ sentiment: aiResult });
 
     } catch (error) {
-        console.error(error);
+        console.error(error.response?.data || error.message);
         res.status(500).json({ error: "Something went wrong" });
     }
 });
